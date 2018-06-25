@@ -10,6 +10,7 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
+
     <form th:action="@{/search/results}" th:object="${searchForm}">
         <h2>Search by:</h2>
 
@@ -29,7 +30,9 @@
     </form>
 
     <hr />
-
+    <div th:unless="${jobs} and ${jobs.size()}">
+        <h3>0 Result(s)</h3>
+    </div>
     <div th:replace="list-jobs :: jobs-list"></div>
 
 </div>
